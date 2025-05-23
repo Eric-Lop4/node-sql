@@ -37,7 +37,7 @@ export const createState = async (req, res) => {
   try {
     const pool = await dbConnection();
     const result = await pool.request()
-      .input("ValorEstado", sql.Int, ValorEstado)
+      .input("ValorEstado", sql.VarChar, ValorEstado)
       .query(`
         INSERT INTO pers_dispositivos_estado (ValorEstado)
         VALUES (@ValorEstado);
@@ -62,7 +62,7 @@ export const updateState = async (req, res) => {
     const pool = await dbConnection();
     const result = await pool.request()
       .input("IdEstado", sql.Int, id)
-      .input("ValorEstado", sql.Int, ValorEstado)
+      .input("ValorEstado", sql.VarChar, ValorEstado)
       .query(`
         UPDATE pers_dispositivos_estado
         SET ValorEstado = @ValorEstado
