@@ -9,11 +9,13 @@ import soRoutes from './routes/so.routes.js'
 import ubiRoutes from './routes/ubi.routes.js'
 import typeDispRoutes from './routes/typeDisp.routes.js'
 import empleadosRoutes from './routes/empleados.routes.js'
+import cors from 'cors';
 
 const app = express();
 
 app.use(express.json());
 
+app.use(cors());
 app.use(productRoutes);
 app.use(devicesRoutes);
 app.use(assignRoutes);
